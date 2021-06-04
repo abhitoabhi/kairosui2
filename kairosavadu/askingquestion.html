@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="askingquestion.css">
+</head>
+<body>
+	<br>
+	<!-- <h2 id="h2tag">Enter question for equipment 
+		<span style="color: #267DFF;font-size: 35px;">?</span> 
+	</h2> -->
+	<input id="inputtag" required placeholder="Enter Your Question here" onkeyup="spacevalidator()">
+	<br><br><br>
+	<div class="maincontainer">
+		<div id="left">
+			<h5 id="enterques">Enter Your Question :</h5>
+			<div id="inputtext">
+				<textarea onkeyup="myFunction()" id="myInput" rows="2" data-gramm="false" class="text" placeholder="Type your question here" ></textarea>
+			</div>
+			<div class="results">
+				<p onclick="col(this)">What is the maximum pressure?</p>
+
+				<p onclick="col(this)">At what pressure can you work?</p>
+
+				<p onclick="col(this)">At what pressure is the air at its maximum?</p>
+
+				<p onclick="col(this)">Can you tell me what the maximum pressure is?</p>
+
+				<p onclick="col(this)">Is there a maximum pressure</p>
+
+				<p onclick="col(this)">When is the pressure the highest?</p>
+
+				<p onclick="col(this)">Maximum pressure</p>
+
+				<p onclick="col(this)">How high is the maximum pressure?</p>
+			</div>
+		</div>
+		<div id="right">
+			<h5>Select relevant equipment :</h5>
+			<div id="equipmentslist">
+				<br>
+				<span onclick="fun(this)">
+					Booster Pump
+				</span>
+				<br><br><br>
+				<span onclick="fun(this)">
+					Hydro jet
+				</span>
+				<br><br><br>
+				<span onclick="fun(this)">
+					Vacuum Truck
+				</span>
+				<br><br>
+				<br>
+				<span onclick="fun(this)">
+					Thermometer
+				</span>
+				<br><br><br>
+				<span onclick="fun(this)">
+					Guaze
+				</span>
+				<br><br><br>
+				<span onclick="fun(this)">
+					Pulse meter
+				</span>
+				<br>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<h5 style="margin-left: 50px;">Enter answers :</h5>
+	<div id="answers">
+		
+	</div>
+	<br><br>
+	<div style="text-align: center;">
+	<button id="submitbutton" onclick="send()">
+		Submit
+	</button>
+	</div>
+	<!--
+	<form action="https://431c779ece2e.ngrok.io/hi" method="POST">
+		<textarea id="sendingtext" name="text">	
+		</textarea>
+		<button>Submit</button>
+	</form>
+-->
+	<br><br><br>
+
+
+
+
+
+<script type="text/javascript">
+	function spacevalidator(){
+		input = document.getElementById("inputtag").value;
+		// console.log(input);
+		if(input.includes(" ")){
+			var x;
+			x = document.getElementById("inputtag").value;
+			x = x.replace(" ","");
+			document.getElementById("inputtag").value = x;
+		}
+	}
+
+
+
+
+	function col(element){
+		if(element.style.color!="white"){
+			element.style.color = "white";
+			element.style.backgroundColor = "#267DFF";
+		}
+		else{
+			element.style.color = "black";
+			element.style.backgroundColor = "white";
+		}
+	}
+
+
+	function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementsByClassName("results");
+    li = document.getElementsByTagName("p");
+    for (i = 0; i < li.length; i++) {
+        a = li[i];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1){
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    	}
+	}
+	
+	function fun(element){
+		if(element.style.color!="white"){
+			element.style.color = "white";
+			element.style.backgroundColor = "#267DFF";
+			var val = element.firstChild.nodeValue;
+			var parent = document.getElementById("answers");
+			var d = document.createElement("DIV");
+			var d1 = document.createElement("DIV");
+			var dparent = document.createElement("DIV");
+			d1.setAttribute("class","links")
+			d.setAttribute("class","divs")
+			dparent.setAttribute("class","maindivs");
+			var input = document.createElement("textarea");
+			var input1 = document.createElement("textarea");
+			input.cols = "70";
+			input.rows = "8";
+			input1.rows = "3";
+			input1.cols = "70";
+			input1.placeholder = "Enter Links here.."
+			input.placeholder = "Enter your answer here.."
+			var p = document.createElement("P");
+			p.innerText = val;
+			d.appendChild(p);
+			d1.appendChild(input1)
+			d.appendChild(input);
+			dparent.appendChild(d);
+			dparent.appendChild(d1);
+			parent.appendChild(dparent);
+		}
+		else{
+			var val = element.firstChild.nodeValue;
+			element.style.color = "black";
+			element.style.backgroundColor = "white";
+			var x = document.getElementsByClassName("divs");
+			var x1 = document.getElementsByClassName("links");
+			var x0 = document.getElementsByClassName("maindivs");
+			for(var i=0;i<x.length;i++){
+				y = x[i];
+				var val1 = y.firstChild.innerText.trim();
+				val = val.trim();
+				if(val1==val){
+					x[i].remove();
+					x1[i].remove();
+					x0[i].remove();
+				}
+			}
+		}
+	}
+
+
+	function send(){
+		var send = "- intent: ";
+		var btn = [];
+		send =send+document.getElementById("myInput").value+"\n";
+		send = send+"  ";
+		send+="examples: |\n";
+		var x = document.getElementsByClassName("results")[0].childNodes;	
+		for(var i = 1;i<x.length;i = i+2){
+			if(x[i].style.color=="white"){
+				send = send+"    ";
+				send = send+"- "+x[i].innerHTML+"\n";
+			}
+		}
+
+		var acess = document.getElementById("answers");
+		for(var i=1;i<acess.childNodes.length;i++){
+			var acessin = acess.childNodes[i];
+			var dict = {};
+			var name = acessin.childNodes[0].childNodes[0].innerText.trim().replace(" ","");
+			dict["name"]="intent_"+name;
+			dict["content"]=acessin.childNodes[0].childNodes[1].value;
+			dict["link"] = acessin.childNodes[1].childNodes[0].value;
+			btn.push(dict);
+		}
+		var http = new XMLHttpRequest();
+		var url = 'https://43a5a69c26a6.ngrok.io/hi';
+		http.open('POST', url, true);
+
+		//Send the proper header information along with the request
+		 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		 http.onreadystatechange = function() {//Call a function when the state changes.
+		     if(http.readyState == 4 && http.status == 200) {
+		         alert(http.responseText);
+		     }
+		}
+		var v;
+		if(btn.length>0){
+			v = "c_";
+		}
+		else{
+			v = "";
+		}
+		v+= document.getElementById("inputtag").value;
+		btn = JSON.stringify(btn)
+		http.send("text="+send+"&"+"button="+btn+"&"+"input="+v);
+
+	}
+
+
+</script>
+</body>
+</html>

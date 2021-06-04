@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="C:\Users\admin\Desktop\kairosavadu\newentityequipment.css">
+</head>
+<body>
+	<br>
+	<div id="name">
+		<span id="span1">NAME OF EQUIPMENT :</span>
+		<input id="input" type="text" name="">
+	</div>
+	<div id="selection">
+		<div id="selectiontitle">
+			<span id="span2">SELECT QUESTION TITLE :</span>
+		</div>
+		<div id="selectioncontainer">
+			<div id="container">
+				<br><br>
+				<span onclick="fun(this)">Question 1</span>
+				<span onclick="fun(this)">Question 2</span>
+				<span onclick="fun(this)">Question 3</span><br><br><br>
+				<span onclick="fun(this)">Question 4</span>
+				<span onclick="fun(this)">Question 5</span>
+				<span onclick="fun(this)">Question 6</span>
+				<br><br><br>
+				<span onclick="fun(this)">Question 7</span>
+				<span onclick="fun(this)">Question 8</span>
+				<span onclick="fun(this)">Question 9</span>
+			</div>
+		</div>
+	</div>
+	<div id="answers">
+		<div id="enterans">
+			<span id="span3">ENTER ANSWERS :</span>
+		</div>
+		<div id="answerscontainer">
+			<div id="answersvalues">
+				
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div style="text-align: center;">
+	<button id="submitbutton" onclick="send()">
+		Submit
+	</button>
+	</div>
+	<br><br><br>
+
+
+	<script type="text/javascript">
+		function fun(element){
+		if(element.style.color!="white"){
+			element.style.color = "white";
+			element.style.backgroundColor = "#267DFF";
+			var val = element.firstChild.nodeValue;
+			var parent =document.getElementById("answersvalues");
+			var d = document.createElement("DIV");
+			var d1 = document.createElement("DIV");
+			var dparent = document.createElement("DIV");
+			d1.setAttribute("class","links");
+			d.setAttribute("class","divs");
+			dparent.setAttribute("class","maindivs");
+			var input = document.createElement("textarea");
+			var input1 = document.createElement("textarea");
+			input.cols = "70";
+			input.rows = "8";
+			input1.rows = "3";
+			input1.cols = "70";
+			input1.placeholder = "Enter Links here.."
+			input.placeholder = "Enter your answer here.."
+			var p = document.createElement("P");
+			p.innerText = val;
+			d.appendChild(p);
+			d1.appendChild(input1);
+			d.appendChild(input);
+			dparent.appendChild(d);
+			dparent.appendChild(d1);
+			parent.appendChild(dparent);
+		}
+		else{
+			var val = element.firstChild.nodeValue;
+			element.style.color = "black";
+			element.style.backgroundColor = "white";
+			var x = document.getElementsByClassName("divs");
+			var x1 = document.getElementsByClassName("links");
+			var x0 = document.getElementsByClassName("maindivs");
+			for(var i=0;i<x.length;i++){
+				y = x[i];
+				var val1 = y.firstChild.innerText.trim();
+				val = val.trim();
+				if(val1==val){
+					x[i].remove();
+					x1[i].remove();
+					x0[i].remove();
+				}
+			}
+		}
+	}
+
+
+	function send(){
+		var input = document.getElementById("input").value;
+		var btn = [];
+		var acess = document.getElementById("answersvalues");
+		for(var i=1;i<acess.childNodes.length;i++){
+			var acessin = acess.childNodes[i];
+			var dict = {};
+			var name = acessin.childNodes[0].childNodes[0].innerText.trim().replace(" ","");
+			dict["name"]=name;
+			dict["content"]=acessin.childNodes[0].childNodes[1].value;
+			dict["link"] = acessin.childNodes[1].childNodes[0].value;
+			btn.push(dict);
+		}
+		var http = new XMLHttpRequest();
+		var url = 'https://c4435cc27187.ngrok.io/hi';
+		http.open('POST', url, true);
+
+		//Send the proper header information along with the request
+		 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		 http.onreadystatechange = function() {//Call a function when the state changes.
+		     if(http.readyState == 4 && http.status == 200) {
+		         alert(http.responseText);
+		     }
+		}
+		btn = JSON.stringify(btn);
+		http.send("nameofequipment="+input+"&"+"answers="+btn);
+
+
+	}
+
+
+
+	</script>
+</body>
+</html>

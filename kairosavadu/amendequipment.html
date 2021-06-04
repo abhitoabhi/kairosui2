@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="C:\Users\admin\Desktop\kairosavadu\amendequipment.css">
+</head>
+<body>
+	<br><br><br>
+	<div id="maincontainer">
+		<div id="leftcontainer">
+			<input id="leftinput" onkeyup="myFunction()" type="text" name="" placeholder="Search by equipment type..">
+			<br>
+			<div id="searchequipment">
+				<div id="one">
+				<p id="ptag" style="color:#267DFF;font-weight: bold;margin-left: 30px;">What is maximum pressure
+				</p>
+				<div id="answersforquestion">
+				<p id="ptag1" style="margin-left: 30px;">
+					<span onclick="remove(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;font-weight: bold;cursor: pointer;">
+						-
+					</span> 
+					<span class="equip">Booster Pump</span>
+				</p>
+				<p style="margin-left: 30px;">
+					<span onclick="remove(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;font-weight: bold;cursor: pointer;">
+						-
+					</span> 
+					<span class="equip">Hydrojet</span>
+				</p>
+				<p style="margin-left: 30px;">
+					<span id="click" onclick="add(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;cursor: pointer;font-weight: bold;">
+						+
+					</span> 
+					<span id="add">Add Equipment</span>
+				</p>
+			</div>
+			</div>
+			<br>
+			<div id="one">
+				<p id="ptag" style="color:#267DFF;font-weight: bold;margin-left: 30px;">What is maximum Temperature
+				</p>
+				<div id="answersforquestion">
+				<p id="ptag1" style="margin-left: 30px;">
+					<span onclick="remove(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;font-weight: bold;cursor: pointer;">
+						-
+					</span> 
+					<span class="equip">Booster Pump</span>
+				</p>
+				<p style="margin-left: 30px;">
+					<span onclick="remove(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;font-weight: bold;cursor: pointer;">
+						-
+					</span> 
+					<span class="equip">Hydrojet</span>
+				</p>
+				<p style="margin-left: 30px;">
+					<span id="click" onclick="add(this)" style="font-size: 23px;color:#267DFF;margin-right: 10px;cursor: pointer;font-weight: bold;">
+						<!-- <i class="fa fa-plus" style="font-size:24px;cursor: pointer;">
+						</i> -->
+						+
+					</span> 
+					<span id="add">Add Equipment</span>
+				</p>
+			</div>
+			</div>
+			<br>
+		</div>
+		</div>
+		<div id="rightcontainer">
+			<input type="text" name="" placeholder="Search by question title..">
+			<div id="answers">
+				<div id="answersin">
+					<p style="color:#267DFF;font-weight: bold;">What is the maximum pressure?</p>
+					<button onclick="edit(this)" id="editbtn">
+						Edit
+					</button><br>
+					<textarea disabled="true" id="textarea1" placeholder="Enter Answer here.." rows="8" cols="63">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+					</textarea>
+					<textarea disabled="true" id="textarea2" rows="3" cols="63" placeholder="Enter Links here.." >
+						https://netflix.in/
+					</textarea>
+				</div>
+				<br>
+				<!--  -->
+				<div id="answersin">
+					<p style="color:#267DFF;font-weight: bold;">What is the maximum Temperature?</p>
+					<button onclick="edit(this)" id="editbtn">
+						Edit
+					</button><br>
+					<textarea disabled="true" id="textarea1" placeholder="Enter Answer here.." rows="8" cols="63">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+					</textarea>
+					<textarea disabled="true" id="textarea2" rows="3" cols="63" placeholder="Enter Links here.." >
+						https://netflix.in/
+					</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div style="text-align: center;">
+	<button id="submitbutton" onclick="send()">
+		Submit
+	</button>
+	</div>
+
+	<div class="special">
+		<span onclick="append(this)">Hydro jet</span>
+		<span onclick="append(this)">Booster Pump</span>
+		<span onclick="append(this)">Vaccum Truck</span>
+		<span onclick="append(this)">Thermometer</span>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		var sendleft = [];
+		var sendright = [];
+		var par;
+		function remove(element){
+			element.parentNode.remove();
+		}
+		function remove1(element){
+			// element.style.display = "none";  
+			console.log(element.parentNode);
+		}
+		function add(element){
+			var z =  element.nextElementSibling.innerHTML;
+			if(z=="Clear"){
+				var div = document.getElementsByClassName("special");
+				div[0].style.display = "none";
+				element.nextElementSibling.innerHTML = "Add Equipment";
+				element.innerHTML = "+";
+			}
+			else{
+			par = element.parentNode.parentNode;
+			if(! sendleft.includes(element.parentNode.parentNode.parentNode.children[0].innerText)){
+				sendleft.push(element.parentNode.parentNode.parentNode.children[0].innerText);
+		    }
+			element.nextElementSibling.innerHTML = "Clear";
+			element.innerHTML = "-"
+			var div = document.getElementsByClassName("special");
+			div[0].style.display = "block";
+			div[0].style.marginLeft = "30px";
+			element.parentNode.parentNode.parentNode.appendChild(div[0]);
+			}
+		}
+		function append(element){
+			var x = element.firstChild.nodeValue;
+			var parent = par
+			var p = document.createElement("P");
+			p.setAttribute("id","jsp");
+			var i = document.createElement("SPAN");
+			var i1 = document.createElement("SPAN");
+			i.innerHTML = "-";
+			i1.innerHTML = x;
+			i.style.fontSize = "20px";
+			i.style.marginLeft = "30px";
+			i1.style.marginLeft = "5px";
+			i.style.marginRight = "10px";
+			i.style.fontSize = "23px";
+			i.style.color = "#267DFF";
+			i.style.cursor = "pointer";
+			i.style.fontWeight = "bold";
+			i.setAttribute("id","clickicon");
+			p.appendChild(i);
+			p.appendChild(i1);
+			i.onclick = function() { 
+				i.parentNode.remove(); 
+			};
+			parent.insertBefore(p, parent.firstChild);
+		}
+		function edit(element){
+			var x = element.firstChild.nodeValue;
+			if(x.trim()=="Edit"){
+				if(! sendright.includes(element.parentNode.children[0].innerHTML)){
+					sendright.push(element.parentNode.children[0].innerHTML);
+				}
+				element.nextElementSibling.nextElementSibling.disabled = false;
+				element.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;
+				element.firstChild.nodeValue = "Save";
+				element.style.color = "white";
+				element.style.backgroundColor = "#267DFF";
+				element.nextElementSibling.nextElementSibling.style.cursor = "pointer";
+				element.nextElementSibling.nextElementSibling.nextElementSibling.style.cursor = "pointer";
+			}
+			else{
+				element.nextElementSibling.nextElementSibling.disabled = true;
+				element.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
+				element.firstChild.nodeValue = "Edit";
+				element.style.color = "#267DFF";
+				element.style.backgroundColor = "white";
+				element.nextElementSibling.nextElementSibling.style.cursor = "no-drop";
+				element.nextElementSibling.nextElementSibling.nextElementSibling.style.cursor = "no-drop";
+			}
+		}
+		function myFunction() {
+	    var input, filter, ul, li, a, i, txtValue;
+	    input = document.getElementById("leftinput");
+	    filter = input.value.toUpperCase();
+	    ul = document.getElementsByClassName("results");
+	    li = document.getElementsByClassName("equip");
+	    for (i = 0; i < li.length; i++) {
+	        a = li[i];
+	        txtValue = a.textContent || a.innerText;
+	        if (txtValue.toUpperCase().indexOf(filter) > -1){
+	            // li[i].parentNode.parentNode.style.display = "";
+	        } else {
+	            li[i].parentNode.parentNode.style.display = "none";
+	        }
+	    	}
+		}
+
+		function send(){
+			var btn = [];
+			var btn1 = [];
+			var x = document.getElementById("searchequipment");
+			for(var i=0;i<sendleft.length;i++){
+				for(var j=0;j<x.children.length;j+=2){
+					var el = x.children[j].firstChild.nextElementSibling.innerHTML.trim();
+					if(el==sendleft[i]){
+						var ste = x.children[j].children[1].children;
+						var arr1 = []
+						for(var k=0;k<ste.length-1;k++){
+							arr1.push(ste[k].children[1].innerHTML);
+						}
+						var dict = {};
+						dict["name"] = sendleft[i];
+						dict["updated"] = arr1;
+						btn.push(dict);
+					}
+				}
+			}
+
+			var y = document.getElementById("answers");
+			for(var i=0;i<sendright.length;i++){
+				for(var j=0;j<y.children.length;j+=2){
+					var du = y.children[j].children[0];
+					if(du.innerHTML==sendright[i]){
+						// na.push(y.children[j].children[3].innerHTML.trim());
+						// na.push(y.children[j].children[4].innerHTML.trim());
+						var dict = {};
+						dict["name"] = sendright[i];
+						dict["answers"] = y.children[j].children[3].innerHTML.trim();
+						dict["link"] = y.children[j].children[4].innerHTML.trim();
+						btn1.push(dict);
+					}
+				}
+			}
+
+		var http = new XMLHttpRequest();
+		var url = 'https://00339c134d10.ngrok.io/hi';
+		http.open('POST', url, true);
+
+		//Send the proper header information along with the request
+		 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		 http.onreadystatechange = function() {//Call a function when the state changes.
+		     if(http.readyState == 4 && http.status == 200) {
+		         alert(http.responseText);
+		     }
+		}
+		btn = JSON.stringify(btn);
+		btn1 = JSON.stringify(btn1);
+		http.send("equipment="+btn+"&"+"question="+btn1);
+			
+		
+
+
+		}
+	</script>
+</body>
+</html>

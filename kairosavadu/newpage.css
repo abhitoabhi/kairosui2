@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+*{
+	box-sizing: border-box;
+
+}
+
+body {
+	background: black;
+	text-align: center;
+	margin: 0px;
+	padding : 0px; 
+	font-family: 'Montserrat', sans-serif;
+}
+#container{
+	height: 230px;
+	width: 1100px;
+	margin-top: 100px;
+	margin-left: 10%;
+	display: flex;
+}
+#newquestion{
+	flex: 1;
+	height: 100%;
+	margin-right: 40px;
+	border-radius: 10px;
+	background-color: #267DFF;
+	text-align: center;
+	cursor: pointer;
+	overflow: hidden;
+}
+#newquestion:hover{
+	transform: scale(1.2);
+	height: 140%;
+	overflow: visible;
+}
+#amend{
+	flex: 1;
+	height: 100%;
+	margin-right: 40px;
+	border-radius: 10px;
+	background-color: #267DFF;
+	text-align: center;
+	cursor: pointer;
+	overflow: hidden;
+}
+#amend:hover{
+	transform: scale(1.2);
+	height: 140%;
+	overflow: visible;
+}
+#newentity{
+	flex: 1;
+	height: 100%;
+	/*margin-right: 20px;*/
+	border-radius: 10px;
+	background-color: #267DFF;
+	text-align: center;
+	cursor: pointer;
+	overflow: hidden;
+}
+#newentity:hover{
+	transform: scale(1.2);
+	height: 140%;
+	overflow: visible;
+}
+button {
+	border-radius: 20px;
+	border: 1px solid white;
+	background-color: white;
+	color: #267DFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+@media screen and (max-width: 600px){
+	body{
+		background: black;
+		text-align: center;
+		margin: 0px;
+		padding : 0px; 
+		font-family: 'Montserrat', sans-serif;
+	}
+	#container{
+		margin: auto;
+		text-align: center;
+		width: auto;
+		height: auto;
+		display: block;
+		margin: 0px;
+	}
+	#newquestion{
+		margin: auto;
+		height: 350px;
+		width: 300px;
+		margin-bottom: 50px;
+		border-radius: 10px;
+		background-color: #267DFF;
+		text-align: center;
+		cursor: pointer;
+	}
+	#newquestion:hover{
+		transform: scale(1);
+		height: 350px;
+	}
+	#amend{
+		margin: auto;
+		height: 350px;
+		width: 300px;
+		margin-bottom: 50px;
+		border-radius: 10px;
+		background-color: #267DFF;
+		text-align: center;
+		cursor: pointer;
+	}
+	#amend:hover{
+		transform: scale(1);
+		height: 350px;
+	}
+	#newentity{
+		margin: auto;
+		height: 350px;
+		width: 300px;
+		margin-bottom: 50px;
+		border-radius: 10px;
+		background-color: #267DFF;
+		text-align: center;
+		cursor: pointer;
+	}
+	#newentity:hover{
+		transform: scale(1);
+		height: 350px;
+	}
+
+}

@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #F0F6FF;
+}
+#name{
+	height: auto;
+	width: auto;
+	margin-top: 70px;
+	margin-left: 100px;
+}
+#span1{
+	font-weight: bold;
+	margin-left: 50px;
+}
+#input{
+	width: 650px;
+	height: 40px;
+	border: 2px solid #267DFF;
+	margin-left: 130px;
+}
+#input:focus{
+	outline: none;
+}
+#selection{
+	margin-top: 60px;
+	display: flex;
+}
+#span2{
+	font-weight: bold;
+	margin-left: 150px;
+}
+#selectioncontainer{
+	flex: 1;
+	height: auto;
+	width: auto;
+	margin-left: 120px;
+}
+#container{
+	height: 150px;
+	overflow-y: scroll;
+	width: 650px;
+	border-radius: 12px;
+	background-color: white;
+	border:1px solid rgb(214, 216, 222);
+	box-shadow: rgba(43, 54, 72, 0.06) 0px 3px 5px 4px;
+}
+#container span{
+	cursor: pointer;
+	border: 2px solid #267DFF;
+	padding: 10px;
+	margin-left: 80px;
+}
+#container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+
+}
+
+#container::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+#container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #267DFF;
+}
+#answers{
+	margin-top: 60px;
+	display: flex;
+}
+#span3{
+	font-weight: bold;
+	margin-left: 150px;
+}
+#answerscontainer{
+	flex: 1;
+	height: auto;
+	width: auto;
+	margin-left: 180px;
+}
+#answersvalues{
+	height: 400px;
+	width: 600px;
+	overflow-y: scroll;
+	border-radius: 12px;
+	background-color: white;
+	border: 1px solid rgb(214, 216, 222);
+	box-shadow: rgba(43, 54, 72, 0.06) 0px 3px 5px 4px;
+}
+#answersvalues::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+
+}
+
+#answersvalues::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+#answersvalues::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #267DFF;
+}
+#answersvalues p{
+	color: #267DFF;
+	margin-left: 50px;
+	font-weight: bold;
+	font-size: 20px;
+}
+#answersvalues textarea{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border: 2px solid #267DFF;
+	margin-left: 50px;
+}
+#submitbutton{
+	width: 200px;
+	height: 50px;
+	background-color: #267DFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+@media screen and (max-width: 600px){
+	#span1{
+		display: block;
+		margin: 10px;
+		margin-left: 0px;
+	}
+	#name{
+		margin: auto;
+    	margin-left: 0px;
+	}
+	#input{
+		width: 90%;
+		height: 40px;
+		border: 2px solid #267DFF;
+    	/* margin-left: 15px; */
+		margin-left: 5%;
+	}
+	#input:focus{
+		outline: none;
+	}
+	#selection{
+		display: block;
+	}
+	#span2{
+		margin: 10px;
+		margin-left: 0px;
+	}
+	#selectiontitle{
+		margin-bottom: 10px;
+	}
+	#selectioncontainer{
+		/*flex: 1;*/
+		height: auto;
+		width: auto;
+		/* margin-left: 60px; */
+	}
+	#container{
+		height: 200px;
+		overflow-y: scroll;
+		width: 95%;
+		border-radius: 12px;
+		background-color: white;
+		border:1px solid rgb(214, 216, 222);
+		box-shadow: rgba(43, 54, 72, 0.06) 0px 3px 5px 4px;
+	}
+	#container span{
+		text-align: center;
+		cursor: pointer;
+		display: inline-block;
+		border: 2px solid #267DFF;
+		/* padding: 10px; */
+		/* width: 230px; */
+    	width: 90%;
+    	margin-left: 2px;
+		margin-bottom: 10px;
+	}
+  	#span3{
+		margin-left: 0px;
+	}
+	#answers{
+		display:block;
+	}
+	#answerscontainer{
+		height: auto;
+		width: auto;
+		margin-left: 15px;
+	}
+	#answersvalues{
+		height: 400px;
+		width: 95%;
+		overflow-y: scroll;
+		border-radius: 12px;
+		background-color: white;
+		border: 1px solid rgb(214, 216, 222);
+		box-shadow: rgba(43, 54, 72, 0.06) 0px 3px 5px 4px;
+	}
+  	#answersvalues textarea{
+    	width: 97%;
+    	margin-left: 0px;
+  	}
+	
+}
